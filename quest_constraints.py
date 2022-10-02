@@ -65,8 +65,10 @@ M[3:6,4] = R*feat_left_3
 M[3:6,5] = feat_right_3
 
 print("Calc Determinant...")
-#det_m = det(M)
 
+# PA = LU
+# A = P_inv*LU
+# det(A) = det(P_inv)*det(L)*det(U)
 (L,U,perm) = M.LUdecomposition()
 P = eye(M.rows).permuteFwd(perm)
 P_inv = P.inv()
